@@ -21,7 +21,7 @@ export default function MasterLayout() {
             <Grid className={classes.formGrid} item xs={12} md={6}>
              <form onSubmit={handleSubmit} className={classes.formMain}>     
             <TextField
-            style={{ marginTop: 25 }}
+            style={{ marginTop: '20%' }}
             size="medium"
             fullWidth
             required
@@ -33,7 +33,7 @@ export default function MasterLayout() {
                 variant="contained"
                 color="primary"
                 size="large"
-                style={{ marginTop: 25, display: 'flex', width:'36%' }}
+                style={{ marginTop: 35, display: 'flex', width:'36%' }}
             >
             Submit
             </Button>

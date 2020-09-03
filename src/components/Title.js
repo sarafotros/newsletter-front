@@ -6,7 +6,7 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		position: 'relative',
 		marginBottom: 60,
-		height: 75,
+		height: 65,
 		width: '100%',
 	},
 	title: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
             height: 5,
             borderRadius: 100,
             width: '8%',
-            background: '#037fff',
+            background: '#1866d5',
         },
         "&::before": {
             content: "''",
@@ -35,14 +35,14 @@ const useStyles = makeStyles(theme => ({
         }
     },
     subtitle: {
-        fontSize: '3.2rem',
+        fontSize: '3.1rem',
         position: 'absolute',
-        left: 15,
-        top: '90%',
+        left: 18,
+        top: '95%',
         fontWeight: 700,
-        color: 'rgba(25,29,43,.64)',
+        color: 'rgba(25,29,43,.05)',
         display: 'inline-block',
-        zIndex: -1,
+        zIndex: 1,
     },
     
 }));
@@ -54,7 +54,7 @@ export default function Title({title}) {
 				<Typography className={classes.title} variant="h2">
 					{title}
 				</Typography>
-				<span className={classes.subtitle}>{title}</span>
+				<span className={classes.subtitle}>MOONPIG.COM</span>
 			</div>
 		);
 }

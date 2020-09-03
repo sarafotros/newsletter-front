@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
   },
   contactGrid:{
     paddingTop: 80,
-    paddingBottom: 60,
+    paddingBottom: 80,
     paddingRight: 60,
     paddingLeft: 80,
     [theme.breakpoints.down('xs')]: {
@@ -16,9 +16,7 @@ export default makeStyles((theme) => ({
         paddingLeft: 5,
     },
     formGrid: {
-        padding: 12,
-        display:'flex',
-        flex:1,
+      
       
     },
     formMain:{
