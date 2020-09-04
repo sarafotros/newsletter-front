@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:8000';
+const baseUrl = 'https://glacial-savannah-76541.herokuapp.com';
 
 const subscribeUrl = baseUrl + '/subscribe/';
 
