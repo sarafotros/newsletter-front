@@ -1,17 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useStyle from './MasterLayout.styles'
 import { Grid, Typography, TextField, Button } from '@material-ui/core';
+import API from '../API'
 import Title from '../components/Title'
 
-export default function MasterLayout() {
+const MasterLayout =() => {
     const classes = useStyle()
+    const [mail, setMail] = useState('');
+    // const [errorReg , setErrorReg] = useState(false)
 
-
-
-  const handleSubmit = (e) => {
+  const handleSubmitForm = (e) => {
     e.preventDefault();
-    console.log('submit')
+    const body = {
+        "email":mail,
+    }
+    console.log(body)
+    API.submitObj(body).then(json =>{
+    console.log(json)
+    })
   }
+
+// const handleRegex = (e)=>{
+//     console.log(e.target.value)
+// }
 
 
     return (
@@ -19,7 +30,8 @@ export default function MasterLayout() {
           <Grid className={classes.contactGrid} item container xs={12}>
              <Title title='Moonpig NewsLetter Subscription' />
             <Grid className={classes.formGrid} item xs={12} md={6}>
-             <form onSubmit={handleSubmit} className={classes.formMain}>     
+
+        <form className={classes.formMain} onSubmit={handleSubmitForm}>     
             <TextField
             style={{ marginTop: '20%' }}
             size="medium"
@@ -28,18 +40,26 @@ export default function MasterLayout() {
             id="outlined-required"
             label='Enter Your Email'
             variant="outlined"
+            // regex={/^[a-z0-9]{3,}@[2-z]{2,}\.[a-z]{2,4}$/i}
+            // errorText="invalid E-mail format"
+            // onBlur={()=>handleRegex()}
+            value={mail}
+            onChange={e => setMail(e.target.value)}
 		    />
             <Button
                 variant="contained"
                 color="primary"
                 size="large"
+                type="submit"
                 style={{ marginTop: 35, display: 'flex', width:'36%' }}
             >
             Submit
             </Button>
+         
         </form>
           </Grid>
         </Grid>
         </div>
     )
 }
+export default MasterLayout
