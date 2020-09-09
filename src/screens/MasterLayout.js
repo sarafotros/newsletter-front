@@ -18,10 +18,10 @@ const MasterLayout =() => {
         "email":mail,
     }
     API.submitObj(body)
-        .then(json =>{console.log(json)}) 
+        .then(json =>{console.log(json.message)}) 
         // e.target.reset()
         setMail('')
-       
+        setErrorReg(false)
   }
 
 const handleRegex = (e)=>{
@@ -51,7 +51,7 @@ const handleRegex = (e)=>{
             onChange={e => setMail(e.target.value)}
 		    />
          {errorReg ? (
-            <span style={{ color: '#ba2d65', fontSize: 12, marginTop: 5 }}>
+            <span style={{ color: '#ba2d65', fontSize: 16, marginTop: 10 }}>
                 {errorText}
             </span>
           ) : null}
