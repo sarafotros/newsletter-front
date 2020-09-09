@@ -7,22 +7,28 @@ import Title from '../components/Title'
 const MasterLayout =() => {
     const classes = useStyle()
     const [mail, setMail] = useState('');
-    // const [errorReg , setErrorReg] = useState(false)
+    const [errorReg , setErrorReg] = useState(false)
+    const [errorText , setErrorText] = useState("invalid E-mail format")
 
   const handleSubmitForm = (e) => {
-    e.preventDefault();
+    e.preventDefault()
+    // e.target.reset();
+    // setMail('')
     const body = {
         "email":mail,
     }
-    console.log(body)
-    API.submitObj(body).then(json =>{
-    console.log(json)
-    })
+    API.submitObj(body)
+        .then(json =>{console.log(json)}) 
+        // e.target.reset()
+        setMail('')
+       
   }
 
-// const handleRegex = (e)=>{
-//     console.log(e.target.value)
-// }
+const handleRegex = (e)=>{
+    const regex = /^[a-z0-9]{3,}@[2-z]{2,}\.[a-z]{2,4}$/i
+    console.log(e.target.value)
+    setErrorReg(!regex.test(e.target.value))
+}
 
 
     return (
@@ -40,22 +46,26 @@ const MasterLayout =() => {
             id="outlined-required"
             label='Enter Your Email'
             variant="outlined"
-            // regex={/^[a-z0-9]{3,}@[2-z]{2,}\.[a-z]{2,4}$/i}
-            // errorText="invalid E-mail format"
-            // onBlur={()=>handleRegex()}
+            onBlur={(e)=>handleRegex(e)}
             value={mail}
             onChange={e => setMail(e.target.value)}
 		    />
+         {errorReg ? (
+            <span style={{ color: '#ba2d65', fontSize: 12, marginTop: 5 }}>
+                {errorText}
+            </span>
+          ) : null}
             <Button
                 variant="contained"
                 color="primary"
                 size="large"
                 type="submit"
+                disabled={errorReg ? true : false}
                 style={{ marginTop: 35, display: 'flex', width:'36%' }}
             >
             Submit
             </Button>
-         
+        
         </form>
           </Grid>
         </Grid>

@@ -1,10 +1,11 @@
-const baseUrl = 'https://glacial-savannah-76541.herokuapp.com';
+// const baseUrl = 'https://glacial-savannah-76541.herokuapp.com';
+const baseUrl = process.env.REACT_APP_API_URL;
 
 const subscribeUrl = baseUrl + '/subscribe/';
 
-const get = (url) => {
-    return fetch(url).then(resp => resp.json())
-}
+// const get = (url) => {
+//     return fetch(url).then(resp => resp.json())
+// }
 
 
 const post = (url, obj) =>{
