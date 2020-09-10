@@ -7,7 +7,6 @@ const theme = createMuiTheme({
   typography: {
     allVariants: {
       fontFamily: '"Quicksand", sans-serif',
-      // fontFamily: '"Staatliches", cursive',
     },
     h1: {
       fontSize: 35,
@@ -55,13 +54,7 @@ const theme = createMuiTheme({
     },
     button: {
       fontSize: 15,
-    },
-    overline: {
-      fontSize: 13,
-      fontWeight: 500,
-      textDecoration: 'line-through',
-      color: 'red',
-    },
+    }
   },
 })
 export default responsiveFontSizes(theme)
