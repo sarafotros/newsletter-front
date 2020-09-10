@@ -15,13 +15,8 @@ export default makeStyles((theme) => ({
         paddingRight: 5,
         paddingLeft: 5,
     },
-    formGrid: {
-      
-      
-    },
     formMain:{
         width:600,
-        
         backgroundColor:'#fff'
     }
   }

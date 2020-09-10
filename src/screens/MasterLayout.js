@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import useStyle from './MasterLayout.styles'
 import { Grid, Typography, TextField, Button } from '@material-ui/core';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import API from '../API'
 import Title from '../components/Title'
 
@@ -8,35 +10,52 @@ const MasterLayout =() => {
     const classes = useStyle()
     const [mail, setMail] = useState('');
     const [errorReg , setErrorReg] = useState(false)
-    const [errorText , setErrorText] = useState("invalid E-mail format")
+    const [errorText , setErrorText] = useState("")
+    const [isBlurEmailField, setIsBlurEmailField]= useState(false)
 
   const handleSubmitForm = (e) => {
     e.preventDefault()
-    // e.target.reset();
-    // setMail('')
     const body = {
         "email":mail,
     }
     API.submitObj(body)
-        .then(json =>{console.log(json.message)}) 
-        // e.target.reset()
+        .then(json => {
+            const { message } = json;
+        toast.success(message.msgBody) 
         setMail('')
-        setErrorReg(false)
+        setErrorReg(false)})
   }
 
-const handleRegex = (e)=>{
-    const regex = /^[a-z0-9]{3,}@[2-z]{2,}\.[a-z]{2,4}$/i
-    console.log(e.target.value)
+  const handleRegex = (e)=>{
+    const regex = /^[a-z0-9A-Z.]{3,}@[2-z]{2,}\.[a-z]{2,4}$/i
     setErrorReg(!regex.test(e.target.value))
-}
+    setErrorText('Invalid Email Format')
+  }
 
+  const handleBlurField = (e)=>{
+    setIsBlurEmailField(true)
+    handleRegex(e)
+  }
+
+  const handleTextFieldChange= (e)=>{
+     setMail(e.target.value)
+     isBlurEmailField && handleRegex(e)
+  }
 
     return (
         <div className={classes.root}>
           <Grid className={classes.contactGrid} item container xs={12}>
              <Title title='Moonpig NewsLetter Subscription' />
             <Grid className={classes.formGrid} item xs={12} md={6}>
-
+          <ToastContainer position="top-center"
+            autoClose={4000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover/>
         <form className={classes.formMain} onSubmit={handleSubmitForm}>     
             <TextField
             style={{ marginTop: '20%' }}
@@ -46,14 +65,14 @@ const handleRegex = (e)=>{
             id="outlined-required"
             label='Enter Your Email'
             variant="outlined"
-            onBlur={(e)=>handleRegex(e)}
+            onBlur={(e)=>handleBlurField(e)}
             value={mail}
-            onChange={e => setMail(e.target.value)}
+            onChange={e => handleTextFieldChange(e)}
 		    />
          {errorReg ? (
-            <span style={{ color: '#ba2d65', fontSize: 16, marginTop: 10 }}>
+            <Typography variant='subtitle1' style={{ color: '#ba2d65', fontSize: 16, marginTop: 10 }}>
                 {errorText}
-            </span>
+            </Typography>
           ) : null}
             <Button
                 variant="contained"
@@ -65,7 +84,7 @@ const handleRegex = (e)=>{
             >
             Submit
             </Button>
-        
+           
         </form>
           </Grid>
         </Grid>
