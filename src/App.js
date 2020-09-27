@@ -6,14 +6,12 @@ import './App.css';
 import MasterLayout from './screens/MasterLayout'
 
 
-
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-    <MasterLayout/>
+      <MasterLayout/>
     </ThemeProvider>
- 
   );
 }
 
