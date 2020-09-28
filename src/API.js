@@ -1,9 +1,5 @@
 const gatewayAPIUrl = 'https://8koyu5qyv1.execute-api.eu-west-2.amazonaws.com/dev'
-// const baseUrl = 'https://glacial-savannah-76541.herokuapp.com';
-// const baseUrl = process.env.REACT_APP_API_URL;
 
-
-// const subscribeUrl = baseUrl + '/subscribe/';
 const subscribeUrl = gatewayAPIUrl + '/subscribe';
 
 const post = (url, obj) =>{
