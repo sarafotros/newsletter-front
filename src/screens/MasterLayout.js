@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import useStyle from './MasterLayout.styles'
 import { Grid, Typography, TextField, Button } from '@material-ui/core';
+import { v4 as uuidv4 } from 'uuid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import API from '../API'
@@ -10,18 +11,19 @@ const MasterLayout =() => {
     const classes = useStyle()
     const [mail, setMail] = useState('');
     const [errorReg , setErrorReg] = useState(false)
-    const [errorText , setErrorText] = useState("")
+    const [errorText , setErrorText] = useState('')
     const [isBlurEmailField, setIsBlurEmailField]= useState(false)
 
   const handleSubmitForm = (e) => {
     e.preventDefault()
     const body = {
-        "email":mail,
+      "id": uuidv4(),
+      "email":mail,
     }
     API.submitObj(body)
         .then(json => {
-            const { message } = json;
-        toast.success(message.msgBody) 
+        const { message } = json;
+        toast.success(message) 
         setMail('')
         setErrorReg(false)})
   }
