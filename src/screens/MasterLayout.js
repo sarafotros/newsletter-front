@@ -22,7 +22,8 @@ const MasterLayout =() => {
     }
     API.submitObj(body)
         .then(json => {
-            const { message } = json;
+          console.log('json')
+        const { message } = json;
         toast.success(message.msgBody) 
         setMail('')
         setErrorReg(false)})
