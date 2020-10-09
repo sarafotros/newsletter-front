@@ -12,11 +12,11 @@ A simple sign up form where a customer can enter their email address and be sent
  
 ## Features
 
-*. A form that allows a customer to enter a valid email address
+* A form that allows a customer to enter a valid email address
 
-*. A success message is presented to the customer upon completion of the form
+* A success message is presented to the customer upon completion of the form
 
-*. An email is sent to the customer confirming they have signed up for newsletter
+* An email is sent to the customer confirming they have signed up for newsletter
 
 
 
