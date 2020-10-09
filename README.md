@@ -4,6 +4,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
+# Overview 
+
+Customers want to be able to sign up for our newsletter without having to sign up to the website.
+A simple sign up form where a customer can enter their email address and be sent newsletters via email.
+
+ 
+## Features
+
+*. A form that allows a customer to enter a valid email address
+
+*. A success message is presented to the customer upon completion of the form
+
+*. An email is sent to the customer confirming they have signed up for newsletter
+
+
 
 ## Installation
 
