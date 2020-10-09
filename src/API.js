@@ -1,5 +1,5 @@
 const gatewayAPIUrl = 'https://8koyu5qyv1.execute-api.eu-west-2.amazonaws.com/dev'
-
+// https://8koyu5qyv1.execute-api.eu-west-2.amazonaws.com/dev
 const subscribeUrl = gatewayAPIUrl + '/subscribe';
 
 const post = (url, obj) =>{
