@@ -4,10 +4,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
+
+
 # Overview 
 
 Customers want to be able to sign up for our newsletter without having to sign up to the website.
 A simple sign up form where a customer can enter their email address and be sent newsletters via email.
+
+
 
  
 ## Features
@@ -20,11 +24,14 @@ A simple sign up form where a customer can enter their email address and be sent
 
 
 
+
+
 ## Installation
 
 ```
 npm install
 ```
+
 
 
 ## Available Scripts
@@ -39,10 +46,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
 
+
+
 ## Tech/framework used
 
 - <b>React</b>
 - <b>AWS</b>
+
+
 
 
 
