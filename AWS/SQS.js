@@ -9,9 +9,7 @@ exports.handler = async (event, context)=> {
 
     // Create an SQS service object
     const sqs = new AWS.SQS({apiVersion: '2012-11-05'});
-
     const { id, email} = JSON.parse(event.body);
-    
     const paramsSQS = {
       QueueUrl: 'https://sqs.eu-west-2.amazonaws.com/980474985817/subscriberQueue',
       MessageBody: email 
