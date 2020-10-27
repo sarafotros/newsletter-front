@@ -1,5 +1,7 @@
 const gatewayAPIUrl = 'https://8koyu5qyv1.execute-api.eu-west-2.amazonaws.com/dev'
+// const gatewayAPIUrl = 'https://oehrwzzfxh.execute-api.eu-west-2.amazonaws.com/dev'
 const subscribeUrl = gatewayAPIUrl + '/subscribe';
+// const subscribeUrl = gatewayAPIUrl + '/createSub';
 
 const post = (url, obj) =>{
     const configObj = {
